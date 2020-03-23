@@ -9,8 +9,10 @@ namespace zl
 		config_item_base();
 		virtual ~config_item_base();
 
-		const std::string& filename() const;
-		void filename(const std::string& val);
+		virtual const std::string get_type() = 0;
+
+		virtual const std::string& filename() const;
+		virtual void filename(const std::string& val);
 
 	private:
 		std::string filename_;
@@ -19,12 +21,21 @@ namespace zl
 	class config_item_json : public config_item_base
 	{
 	public:
+		config_item_json();
+		virtual ~config_item_json();
+
+		virtual const std::string get_type();
+
 	private:
 	};
 
 	class config_item_xml : public config_item_base
 	{
 	public:
+		config_item_xml();
+		virtual ~config_item_xml();
+
+		virtual const std::string get_type();
 	private:
 	};
 
@@ -33,6 +44,8 @@ namespace zl
 	public:
 		config();
 		~config();
+
+
 	private:
 		std::map<std::string, std::shared_ptr<config_item_base>> config_items;
 	};
