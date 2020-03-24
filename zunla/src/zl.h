@@ -10,8 +10,10 @@
 
 #include <boost/filesystem.hpp>
 #include <boost/dll.hpp>
-#include <boost/asio.hpp>
 // #include "zl_config.h"
+
+#define PUGIXML_HEADER_ONLY
+#include "pugixml/src/pugixml.hpp"
 
 #include "zl_data_format_base.h"
 #include "zl_data_format_xml.h"

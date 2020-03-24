@@ -3,3 +3,4 @@
 project ("Zunla-Framework")
 
 add_subdirectory ("zunla")
+add_subdirectory ("third_party/pugixml")

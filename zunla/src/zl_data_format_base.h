@@ -6,19 +6,15 @@ namespace zl
 	class data_format_base
 	{
 	public:
-		data_format_base();
+		data_format_base(const std::string& filename = "");
 		~data_format_base();
 
 		virtual const std::string type() = 0;
 
-		virtual const std::string& filename();
-		virtual void filename(const std::string& val);
+		virtual void do_load();
+		virtual void do_dump();
 
-		virtual const std::string& content();
-		virtual void content(const std::string& val);
-
-		virtual void do_read();
-		virtual void do_write();
+		bool is_exists();
 
 	private:
 		std::string filename_;
