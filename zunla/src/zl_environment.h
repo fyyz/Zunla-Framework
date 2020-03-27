@@ -16,12 +16,16 @@ namespace zl
 		void do_init();
 
 		const std::string& get_program_dir();
+		std::shared_ptr<config_manager> get_config_manager();
 
 	private:
 		environment();
 		~environment();
 
+		void init_config_manager();
+
 		const std::string program_dir_;
+		std::shared_ptr<config_manager> config_manager_;
 	};
 }
 

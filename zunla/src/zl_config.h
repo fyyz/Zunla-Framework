@@ -1,16 +1,29 @@
-#ifndef _ZUNLA_CONFIG_H_
-#define _ZUNLA_CONFIG_H_
+#ifndef _ZL_CONFIG_H_
+#define _ZL_CONFIG_H_
 
 namespace zl
 {
-	class config
+	class config_base
 	{
 	public:
-		config();
-		~config();
+		config_base(const std::string& filename);
+		~config_base();
+
+		virtual const std::string& filename();
+
+		virtual bool is_exists();
+
+		virtual void do_init();
+		virtual void do_read();
+		virtual void do_write();
+
+	protected:
+		std::string full_filename();
 
 	private:
-		std::map<std::string, std::shared_ptr<config_item_base>> config_items;
+		std::string filename_;
+
+
 	};
 }
 
