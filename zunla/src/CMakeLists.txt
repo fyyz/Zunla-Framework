@@ -1,8 +1,11 @@
 ﻿set (ZL_SRC_FILES
 	#"zl_data_format_base.cpp"
 	#"zl_data_format_json.cpp"
+	#"zl_object.cpp"
+	#"zl_config.cpp"
+	#"zl_config_manager.cpp"
+	"zl_object.cpp"
 	"zl_config.cpp"
-	"zl_config_manager.cpp"
 	"zl_environment.cpp"
 	"main.cpp"
 )
@@ -27,6 +30,6 @@ endforeach()
 message(STATUS "================================")
 # ]]
 
-add_executable (zunla ${ZL_SRC_FILES} "zl_config.cpp")
+add_executable (zunla ${ZL_SRC_FILES})
 target_include_directories(zunla PUBLIC ${Boost_INCLUDE_DIRS} ${third_party_INCLUDE_DIRS})
 target_link_directories(zunla PUBLIC ${Boost_LIBRARY_DIRS})

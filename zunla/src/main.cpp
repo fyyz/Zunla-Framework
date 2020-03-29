@@ -4,11 +4,11 @@ int main()
 {
 	zl_env.do_init();
 	
-	if (zl_env.get_config_manager()->do_read("a.xml") == nullptr)
-	{
-		zl_env.get_config_manager()->do_create("a.xml");
-	}
-	
+	auto _1 = zl_env.get_module<zl::config>()->create();
+	auto _2 = zl_env.get_module<zl::config>()->create();
+	auto _3 = zl_env.get_module<zl::config>()->create();
 
+	auto a = zl_env.get_module<zl::config>();
+	
 	return 0;
 }

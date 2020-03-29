@@ -1,4 +1,4 @@
-#ifndef _ZL_EXCEPTION_H_
+﻿#ifndef _ZL_EXCEPTION_H_
 #define _ZL_EXCEPTION_H_
 
 #define REGISTER_EXCEPTION(exception_name) \

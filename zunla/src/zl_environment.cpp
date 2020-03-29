@@ -1,4 +1,4 @@
-#include "zl.h"
+﻿#include "zl.h"
 
 zl::environment& zl::environment::get()
 {
@@ -8,17 +8,20 @@ zl::environment& zl::environment::get()
 
 void zl::environment::do_init()
 {
-	init_config_manager();
+	init_increment_id();
+	init_default_module();
 }
 
-const std::string& zl::environment::get_program_dir()
+const std::string& zl::environment::get_program_dir() const
 {
 	return program_dir_;
 }
 
-std::shared_ptr<zl::config_manager> zl::environment::get_config_manager()
+std::uint64_t zl::environment::get_increment_id()
 {
-	return config_manager_;
+	std::uint64_t temp_id = increment_id_;
+	increment_id_++;
+	return temp_id;
 }
 
 zl::environment::environment()
@@ -30,8 +33,12 @@ zl::environment::~environment()
 {
 }
 
-void zl::environment::init_config_manager()
+void zl::environment::init_increment_id()
 {
-	config_manager_ = std::make_shared<config_manager>();
-	config_manager_->do_init();
+	increment_id_ = 0;
+}
+
+void zl::environment::init_default_module()
+{
+	do_register_module<config>();
 }

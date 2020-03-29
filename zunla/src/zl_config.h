@@ -3,28 +3,14 @@
 
 namespace zl
 {
-	class config_base
+	class config : public object
 	{
 	public:
-		config_base(const std::string& filename);
-		~config_base();
-
-		virtual const std::string& filename();
-
-		virtual bool is_exists();
-
-		virtual void do_init();
-		virtual void do_read();
-		virtual void do_write();
-
-	protected:
-		std::string full_filename();
-
+		config();
+		~config();
 	private:
-		std::string filename_;
-
-
 	};
+
 }
 
 #endif
